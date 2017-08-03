@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/admin.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"> 
+
+    <ui:define name="head">
+        <title>SENSOR DE AGUA</title>
+
+
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta name="description" content="Made with WOW Slider - Create beautiful, responsive image sliders in a few clicks. Awesome skins and animations. Image carousel" />
+
+        <!-- Start WOWSlider.com HEAD section --> <!-- add to the <head> of your page -->
+        <link rel="stylesheet" type="text/css" href="engine1/style.css" />
+        <script type="text/javascript" src="engine1/jquery.js"></script>
+
+    </ui:define>
+
+    <ui:define name="logo-lg">
+        <big><b>S.A.T</b></big>
+    </ui:define>
+
+    <ui:define name="logo-mini">
+        Sensor
+    </ui:define>
+
+    <ui:define name="menu">
+        <ul class="sidebar-menu">
+            <li>
+                <p:link href="sn.xhtml" onclick="clearBreadCrumbs()">
+                    <i class="fa fa-group"></i>
+                    <samp> SOBRE NOSOTROS!! </samp>
+                </p:link>
+            </li>
+            <li>
+                <p:link href="vista/grafico_estadistico_anual.xhtml" onclick="clearBreadCrumbs()">
+                    <i class="fa fa-align-left"></i>
+                    <samp> ESTADISTICAS ANUALES </samp>
+                </p:link>
+            </li>
+            <li>
+                <p:link href="monitoreo.xhtml" onclick="clearBreadCrumbs()">
+                    <i class="fa fa-line-chart"></i>
+                    <samp> MONITOREO </samp>
+                </p:link>
+            </li>
+            <li>
+                <p:link href="vista/ingreso_rio.xhtml" onclick="clearBreadCrumbs()">
+                    <i class="fa fa-indent"></i>
+                    <samp> NUEVOS INGRESOS DE RIO </samp>
+                </p:link>
+            </li>
+            <li>
+                <p:link href="vista/ingreso_sector.xhtml" onclick="clearBreadCrumbs()">
+                    <i class="fa fa-pied-piper"></i>
+                    <samp> NUEVO INGRESO SECTOR </samp>
+                </p:link>
+            </li>
+            <li>
+                <p:link href="vista/sectorizacion.xhtml" onclick="clearBreadCrumbs()">
+                    <i class="fa fa-picture-o"></i>
+                    <samp> MAPA </samp>
+                </p:link>
+            </li>
+
+        </ul>
+    </ui:define>
+    <ui:define name="top-menu">
+        <ui:include src="/includes/top-bar.xhtml"/>
+    </ui:define>
+
+    <ui:define name="title">
+        <h2 class="align-center">
+            Bienvenidos  <span class="text-aqua"> <i><a href="https://github.com/adminfaces/admin-starter"
+                                                        target="_blank"
+                                                        style="text-transform: none;text-decoration: none"> Sistema de Alerta </a></i></span> temprana S.A.T
+            <br/>
+
+        </h2>
+
+    </ui:define>
+
+    <ui:define name="body" >
+
+        <!-- Start WOWSlider.com BODY section --> <!-- add to the <body> of your page -->
+        <div id="wowslider-container1">
+            <div class="ws_images"><ul>
+                    <li><img src="data1/images/5866ab335e856.jpg" alt="Puente del Rio Pindo Grande" title="Puente del Rio Pindo Grande" id="wows1_0"/></li>
+                    <li><img src="data1/images/laislalugardealtoriegoenpuyo1.jpg" alt="La-Isla-lugar-de-alto-Riego-en-Puyo-1" title="La-Isla-lugar-de-alto-Riego-en-Puyo-1" id="wows1_1"/></li>
+                    <li><img src="data1/images/maxresdefault.jpg" alt="Dique de Shell" title="Dique de Shell" id="wows1_2"/></li>
+                    <li><a href="http://wowslider.com/vf"><img src="data1/images/descarga.jpg" alt="full screen slider" title="Entrada a la Hosteria el Pigual" id="wows1_3"/></a></li>
+                    <li><img src="data1/images/5f71570e46000213ef501ecd09dd270c_xl.jpg" alt="Sector de la comunidad Sacha Runa" title="Sector de la comunidad Sacha Runa" id="wows1_4"/></li>
+                </ul></div>
+            <div class="ws_bullets"><div>
+                    <a href="#" title="Puente del Rio Pindo Grande"><img src="data1/tooltips/5866ab335e856.jpg" alt="Puente del Rio Pindo Grande"/>1</a>
+                    <a href="#" title="La-Isla-lugar-de-alto-Riego-en-Puyo-1"><img src="data1/tooltips/laislalugardealtoriegoenpuyo1.jpg" alt="La-Isla-lugar-de-alto-Riego-en-Puyo-1"/>2</a>
+                    <a href="#" title="Dique de Shell"><img src="data1/tooltips/maxresdefault.jpg" alt="Dique de Shell"/>3</a>
+                    <a href="#" title="Entrada a la Hosteria el Pigual"><img src="data1/tooltips/descarga.jpg" alt="Entrada a la Hosteria el Pigual"/>4</a>
+                    <a href="#" title="Sector de la comunidad Sacha Runa"><img src="data1/tooltips/5f71570e46000213ef501ecd09dd270c_xl.jpg" alt="Sector de la comunidad Sacha Runa"/>5</a>
+                </div></div>
+            <div class="ws_shadow"></div>
+        </div>	
+        <script type="text/javascript" src="engine1/wowslider.js"></script>
+        <script type="text/javascript" src="engine1/script.js"></script>
+        <!-- End WOWSlider.com BODY section -->
+
+        <h:form>
+            <p:outputPanel deferred="true">
+                <h3>Loaded after page load.</h3>
+                <p>Lorem ipsum dolor sit amet...</p>
+            </p:outputPanel>
+
+
+        </h:form>
+
+    </ui:define>
+
+
+    <ui:define name="description">
+        La tierra provee lo suficiente para satisfacer las necesidades de cada hombre, pero no la avaricia de cada hombre.-Mahatma Gandhi
+    </ui:define>
+
+    <ui:define name="footer">
+        <a target="_blank"
+           href="https://github.com/adminfaces/">
+            <b>SAT-PUYO (C) 2016 - 2017 (Octavo Sistemas)</b>
+        </a>
+
+        <div class="pull-right hidden-xs" style="color: gray">
+            <i>1.0.0</i>
+        </div>
+    </ui:define>
+
+
+</ui:composition>
+
+

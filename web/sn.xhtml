@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/admin.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"> 
+
+    <ui:define name="head">
+        <title>SENSOR DE AGUA</title>
+
+
+
+    </ui:define>
+
+    <ui:define name="logo-lg">
+        <big><b>S.A.T</b></big>
+    </ui:define>
+
+    <ui:define name="logo-mini">
+        Sensor
+    </ui:define>
+
+    <ui:define name="menu">
+        <ul class="sidebar-menu">
+            <li>
+                <p:link href="./../index.xhtml" onclick="clearBreadCrumbs()">
+                    <i class="fa fa-home"></i>
+                    <span> INICIO </span>
+                </p:link>
+            </li>
+            
+        </ul>
+    </ui:define>
+
+
+    <ui:define name="title">
+        <h2 class="align-center">
+            Nosotros  <span class="text-aqua"> <i><a href="https://github.com/adminfaces/admin-starter"
+                                                     target="_blank"
+                                                     style="text-transform: none;text-decoration: none"> estamos a tu disposicion, </a></i></span> en lo que se pueda ayudar ... 
+            <br/>
+
+        </h2>
+
+    </ui:define>
+    
+    <ui:define name="body" >
+        <p:layout style="min-width:200px;min-height:300px;">
+            <p:layoutUnit position="west" resizable="true" size="530" minSize="40" maxSize="1000">
+                <h2><b>Visión:</b></h2>
+                <center>
+                <IMG SRC="imagenes/vision.jpg"  ALT="Obra de K. Haring"></IMG>
+                </center>
+                <p></p>
+                <h4><p>En el futuro seré una persona exitosa, realizada tanto en el aspecto
+                     personal como profesional, es decir, espero tener una familia consolidada, 
+                     tener un buen puesto de trabajo dentro del ámbito de mi carrera profesional, 
+                        un buen sueldo, espero tener mi casa propia en la ciudad y en la playa, 
+                        espero tener mi propia auto, viajar mucho para conocer diversos países y  
+                        culturas, espero tener a mi lado a mis principales seres queridos. 
+                        Finalmente, espero enfrentar satisfactoriamente los problemas que puedan 
+                        surgir en el camino y siempre luchar por lo que quiero ser a pesar de las 
+                        adversidades y sobre todo espero ser inmensamente feliz con lo que el Señor 
+                        tenga preparado para mi y mi familia.</p></h4>
+            </p:layoutUnit>
+            <p:layoutUnit position="center">
+                <h2><b>Misión:</b></h2>
+                <p></p>
+                <center>
+                <IMG SRC="imagenes/Mision.png"  ALT="Obra de K. Haring"></IMG>
+                </center>
+                <h4>Soy una persona con muchas metas e ideales por cumplir en la vida y 
+                    tengo las suficientes cualidades que me ayudarán a alcanzar mis 
+                    objetivos trazados. Las virtudes que respaldan mi accionar día a día 
+                    son la perseverancia, la responsabilidad, la inteligencia, la amabilidad,
+                    el respeto hacia los demás, ser sencilla y sociable.  Soy un ser humano 
+                    consciente de mis actos y que trato de mejorar cada día para alcanzar mis metas, 
+                    respaldándome de la confianza que tengo en mi persona.</h4>
+            </p:layoutUnit>
+
+        </p:layout>
+
+        <h:form>
+            <p:outputPanel deferred="true">
+                <h3>Loaded after page load.</h3>
+                <p>Lorem ipsum dolor sit amet...</p>
+            </p:outputPanel>
+
+
+        </h:form>
+
+    </ui:define>
+
+
+    <ui:define name="description">
+
+
+    </ui:define>
+
+    <ui:define name="footer">
+        <a target="_blank"
+           href="https://github.com/adminfaces/">
+             <b>SAT-PUYO (C) 2016 - 2017 (Octavo Sistemas)</b>
+        </a>
+
+        <div class="pull-right hidden-xs" style="color: gray">
+            <i>1.0.0</i>
+        </div>
+    </ui:define>
+
+
+</ui:composition>
+
+

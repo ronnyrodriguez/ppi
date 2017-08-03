@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/admin.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"> 
+
+    <ui:define name="head">
+        <title>SENSOR DE AGUA</title>
+    </ui:define>
+
+    <ui:define name="logo-lg">
+        <big><b>SENSOR DE AGUA</b></big>
+    </ui:define>
+
+    <ui:define name="logo-mini">
+        Sensor
+    </ui:define>
+
+    <ui:define name="menu">
+        <ul class="sidebar-menu">
+            <li>
+                <p:link href="./../index.xhtml" onclick="clearBreadCrumbs()">
+                    <i class="fa fa-home"></i>
+                    <span> INICIO </span>
+                </p:link>
+            </li>
+            
+        </ul>
+    </ui:define>
+
+    
+
+    <ui:define name="title">
+        INGRESO DE NUEVOS SECTORES
+        
+         <h:form id="frmproductos">
+                    <p:panel id="pnlProducto">
+
+                        <p:dataTable id="tblClientes" value="#{cSensor.lista}" var="cli" selectionMode="single" selection="#{cSensor.selectedSector}" rowKey="#{cli.id}">
+                            <p:column headerText="Id" style="width: 80%">
+                                <h:outputText value="#{cli.id}"/>
+                            </p:column>
+                            <p:column headerText=" Lugar - Rios de Puyo " style="width: 80%">
+                                <h:outputText value="#{cli.estado}"/>
+                            </p:column>
+                            <p:column headerText="Distancia" style="width: 80%">
+                                <h:outputText value="#{cli.observaciones} km"/>
+                            </p:column>
+                            <p:column headerText="Codigo Sector" style="width: 80%">
+                                <h:outputText value="#{cli.sector_id.codigo_sector}"/>
+                            </p:column>
+                            <p:column headerText="Observacion" style="width: 80%">
+                                <h:outputText value="#{cli.tipo} "/>
+                            </p:column>
+
+                            <f:facet name="footer">
+                                <p:commandButton id="btnNuevo" value="Nuevo" oncomplete="PF('wdlgNuevo').show();"/>
+                                </f:facet>
+                        </p:dataTable>
+
+                    </p:panel>
+                </h:form>
+
+
+                <p:dialog id="dlgAgregar" header="Nuevo Producto" widgetVar="wdlgNuevo" modal="true" resizable="false" showEffect="clip" hideEffect="fold">
+                    <h:form id="frmNuevoProducto">
+                        <p:panelGrid id="pngNuevoProducto" columns="2">
+
+                            <h:outputText value=" Codigo Sector"/>
+                            <p:inputText required="true" requiredMessage="Se requiere el estado del sensor" value="#{cSensor.newSector.estado}"/>
+                            <h:outputText value="Distancia"/>
+                            <p:inputText required="true" requiredMessage="Se requiere una descripción" value="#{cSensor.newSector.observaciones}"/>
+                            <h:outputText value="Codigo - Lugar"/>
+                            <p:inputText required="true" requiredMessage="Se requiere una descripción" value="#{cSensor.newlugar}"/>
+
+
+                            
+                            <h:outputText value="Observacion"/>
+                            <p:inputText required="true" requiredMessage="Se requiere una descripción" value="#{cSensor.newSector.tipo}"/>
+
+
+                        </p:panelGrid>
+                        <p:commandButton value="Ingresar" action="#{cSensor.insertar()}" update=":frmproductos:pnlProducto :frmNuevoProducto" onclick="wdlgNuevo.hide();"/>
+                        <p:commandButton value="Cancelar" immediate="true" oncomplete="PF('wdlgNuevo').hide();" type="reset"/>
+                    </h:form>
+                </p:dialog>                
+
+
+
+        
+    </ui:define>
+
+  
+    <ui:define name="footer">
+        <a target="_blank"
+           href="https://github.com/adminfaces/">
+            <b>SAT-PUYO (C) 2016 - 2017 (Octavo Sistemas)</b>
+        </a>
+
+        <div class="pull-right hidden-xs" style="color: gray">
+            <i>1.0.0</i>
+        </div>
+    </ui:define>
+
+
+</ui:composition>
+
+

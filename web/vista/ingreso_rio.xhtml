@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/admin.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"> 
+
+    <ui:define name="head">
+        <title>SENSOR DE AGUA</title>
+    </ui:define>
+
+    <ui:define name="logo-lg">
+        <big><b>S.A.T</b></big>
+    </ui:define>
+
+    <ui:define name="logo-mini">
+        Sensor
+    </ui:define>
+
+    <ui:define name="menu">
+        <ul class="sidebar-menu">
+           <li>
+                <p:link href="./../index.xhtml" onclick="clearBreadCrumbs()">
+                    <i class="fa fa-home"></i>
+                    <span> INICIO </span>
+                </p:link>
+            </li>
+            
+        </ul>
+    </ui:define>
+
+    
+
+    <ui:define name="title">
+        INGRESO DE NUEVOS RIOS
+        
+        <h:form id="frmproductos">
+                    <p:panel id="pnlProducto">
+
+                        <p:dataTable id="tblClientes" value="#{cLugar.lista}" var="cli" selectionMode="single" selection="#{cLugar.selectedLugar}" rowKey="#{cli.id}">
+                           <p:column headerText="Codigo de Lugar" style="width: 80%">
+                                <h:outputText value="#{cli.id}"/>
+                            </p:column>
+                            <p:column headerText="Lugar" style="width: 80%">
+                                <h:outputText value="#{cli.nombre}"/>
+                            </p:column>
+                            <p:column headerText="Observacion" style="width: 80%">
+                                <h:outputText value="#{cli.observacion}"/>
+                            </p:column>
+                            <f:facet name="footer">
+                                <p:commandButton id="btnNuevo" value="Nuevo" oncomplete="PF('wdlgNuevo').show();"/>
+                                <p:commandButton id="btnModificar" value="Modificar" oncomplete="PF('wdlgModificar').show();" update=":frmModificarProducto"/>
+                                <p:commandButton id="btnEliminar" value="Eliminar" oncomplete="PF('wdlgEliminar').show();" update=":frmEliminarProducto"/>
+                            </f:facet>
+                        </p:dataTable>
+
+                    </p:panel>
+                </h:form>
+
+
+                <p:dialog id="dlgAgregar" header="Nuevo Producto" widgetVar="wdlgNuevo" modal="true" resizable="false" showEffect="clip" hideEffect="fold">
+                    <h:form id="frmNuevoProducto">
+                        <p:panelGrid id="pngNuevoProducto" columns="2">
+                            
+                            <h:outputText value="Nombre del Rio "/>
+                            <p:inputText required="true" requiredMessage="Se requiere una descripción" value="#{cLugar.newLugar.nombre}"/>
+                            <h:outputText value="Observacion"/>
+                            <p:inputText required="true" requiredMessage="Se requiere una descripción" value="#{cLugar.newLugar.observacion}"/>
+                        </p:panelGrid>
+                        <p:commandButton value="Ingresar" action="#{cLugar.insertar()}" update=":frmproductos:pnlProducto :frmNuevoProducto" onclick="wdlgNuevo.hide();"/>
+                        <p:commandButton value="Cancelar" immediate="true" oncomplete="PF('wdlgNuevo').hide();" type="reset"/>
+                    </h:form>
+                </p:dialog>
+                <p:dialog id="dlgModificar" header="Modificar Producto" widgetVar="wdlgModificar" modal="true" resizable="false" showEffect="clip" hideEffect="fold">
+                    <h:form id="frmModificarProducto">
+                        <p:panelGrid id="pngModificarProducto" columns="2">
+                            <h:outputText value="Código"/>
+                            <p:inputText required="true" readonly="true" value="#{cLugar.selectedLugar.id}"/>
+                            <h:outputText value="Descripción"/>
+                            <p:inputText required="true" requiredMessage="Se requiere una descripción" value="#{cLugar.selectedLugar.nombre}"/>
+                            <h:outputText value="Precio Venta"/>
+                            <p:inputText required="true" value="#{cLugar.selectedLugar.observacion}"/>
+                        </p:panelGrid>
+                        <p:commandButton value="Modificar" action="#{cLugar.actualizar()}" update=":frmproductos:pnlProducto :frmModificarProducto" onclick="wdlgModificar.hide()"/>
+                        <p:commandButton value="Cancelar" onclick="wdlgModificar.hide()" type="reset"/>
+                    </h:form>
+                </p:dialog>
+                <p:dialog id="dlgEliminar" header="Eliminar Producto" widgetVar="wdlgEliminar" modal="true" resizable="false" showEffect="clip" hideEffect="fold">
+                    <h:form id="frmEliminarProducto">
+                        <p:panelGrid id="pngEliminarProducto" columns="2">
+                            <h:outputText value="Código"/>
+                            <h:outputText value="#{cLugar.selectedLugar.id}"/>
+                            <h:outputText value="Descripción"/>
+                            <h:outputText value="#{cLugar.selectedLugar.nombre}"/>
+                             <h:outputText value="Precio Venta"/>
+                             <h:outputText value="#{cLugar.selectedLugar.observacion}"/>
+                        </p:panelGrid>
+                        <p:commandButton value="Eliminar" action="#{cLugar.eliminar()}" update=":frmproductos:pnlProducto :frmEliminarProducto" onclick="wdlgEliminar.hide()"/>
+                        <p:commandButton value="Cancelar" onclick="wdlgEliminar.hide()" type="reset"/>
+                    </h:form>
+                </p:dialog>
+        
+    </ui:define>
+
+  
+    <ui:define name="footer">
+        <a target="_blank"
+           href="https://github.com/adminfaces/">
+            <b>SAT-PUYO (C) 2016 - 2017 (Octavo Sistemas)</b>
+        </a>
+
+        <div class="pull-right hidden-xs" style="color: gray">
+            <i>1.0.0</i>
+        </div>
+    </ui:define>
+
+
+</ui:composition>
+
+

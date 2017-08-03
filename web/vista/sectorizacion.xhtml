@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/admin.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"> 
+
+    <ui:define name="head">
+        <title>SENSOR DE AGUA</title>
+
+
+
+    </ui:define>
+
+    <ui:define name="logo-lg">
+        <big><b>S.A.T</b></big>
+    </ui:define>
+
+    <ui:define name="logo-mini">
+        Sensor
+    </ui:define>
+
+    <ui:define name="menu">
+        <ul class="sidebar-menu">
+            <li>
+                <p:link href="./../index.xhtml" onclick="clearBreadCrumbs()">
+                    <i class="fa fa-user"></i>
+                    <span> Inicio </span>
+                </p:link>
+            </li>
+            <li>
+                <p:link href="" onclick="clearBreadCrumbs()">
+                    <i class="fa fa-cc-visa"></i>
+                    <samp> Sobre Nosotros </samp>
+                </p:link>
+            </li>
+            <li>
+                <p:link href="../grafico_estadistico_anual.xhtml" onclick="clearBreadCrumbs()">
+                    <i class="fa fa-cc-visa"></i>
+                    <samp> Estadistica Anual </samp>
+                </p:link>
+            </li>
+            <li>
+                <p:link href="../grafico_tiempo_real.xhtml" onclick="clearBreadCrumbs()">
+                    <i class="fa fa-cc-visa"></i>
+                    <samp> Monitoreo </samp>
+                </p:link>
+            </li>
+            <li>
+                <p:link href="../ingreso_rio.xhtml" onclick="clearBreadCrumbs()">
+                    <i class="fa fa-cc-visa"></i>
+                    <samp> Rios .- Administracion  </samp>
+                </p:link>
+            </li>
+            <li>
+                <p:link href="../ingreso_sector.xhtml" onclick="clearBreadCrumbs()">
+                    <i class="fa fa-cc-visa"></i>
+                    <samp> Sector .- Administracion  </samp>
+                </p:link>
+            </li>
+
+        </ul>
+    </ui:define>
+
+
+    <ui:define name="title">
+        <h2 class="align-center">
+            Nosotros  <span class="text-aqua"> <i><a href="https://github.com/adminfaces/admin-starter"
+                                                     target="_blank"
+                                                     style="text-transform: none;text-decoration: none"> estamos a tu disposicion, </a></i></span> en lo que se pueda ayudar ... 
+            <br/>
+
+        </h2>
+
+    </ui:define>
+    
+    <ui:define name="body" >
+        <p:layout style="min-width:400px;min-height:200px;">
+            <img id="qwe" href="../imagenes/mapa.jpg"></img>
+        </p:layout>
+
+        <h:form>
+            <p:outputPanel deferred="true">
+                <h3>Loaded after page load.</h3>
+                <p>Lorem ipsum dolor sit amet...</p>
+            </p:outputPanel>
+
+
+        </h:form>
+
+    </ui:define>
+
+
+    <ui:define name="description">
+
+
+    </ui:define>
+
+    <ui:define name="footer">
+        <a target="_blank"
+           href="https://github.com/adminfaces/">
+             <b>SAT-PUYO (C) 2016 - 2017 (Octavo Sistemas)</b>
+        </a>
+
+        <div class="pull-right hidden-xs" style="color: gray">
+            <i>1.0.0</i>
+        </div>
+    </ui:define>
+
+
+</ui:composition>
+
+

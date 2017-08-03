@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                template="/admin.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"> 
+
+    <ui:define name="head">
+        <title>SENSOR DE AGUA</title>
+    </ui:define>
+
+    <ui:define name="logo-lg">
+        <big><b>SENSOR DE AGUA</b></big>
+    </ui:define>
+
+    <ui:define name="logo-mini">
+        Sensor
+    </ui:define>
+
+    <ui:define name="menu">
+        <ul class="sidebar-menu">
+            <li>
+                <p:link href="./../index.xhtml" onclick="clearBreadCrumbs()">
+                    <i class="fa fa-home"></i>
+                    <span> INICIO </span>
+                </p:link>
+            </li>
+        </ul>
+    </ui:define>
+
+
+
+    <ui:define name="title">
+        DATOS ESTADISTICOS ANUALES DEL CAUDAL DEL RIO
+
+        <h:form>
+
+
+            <!-- aqui se colocara el año a consultar   -->
+
+
+
+            <!-- aqui se encuentra el grafico del form -->
+
+            <p:growl id="growl" showDetail="true" />
+            <h:panelGrid columns="2" columnClasses="left,right"  style="width:90% ">
+                <h:panelGrid columns="2">
+                <p:chart  type="line" model="#{chart_mes_01.lineModel2}" style="height:300px;" widgetVar="chart"/>
+                </h:panelGrid>
+                
+                <h:panelGrid columns="2">
+                <p:chart  type="line" model="#{chart_mes_02.lineModel2}" style="height:300px;" widgetVar="chart1"/>
+                </h:panelGrid>
+                <h:panelGrid columns="2">
+                <p:chart  type="line" model="#{chart_mes_03.lineModel2}" style="height:300px;" widgetVar="chart2"/>
+                </h:panelGrid>
+                <h:panelGrid columns="2">
+                <p:chart  type="line" model="#{chart_mes_04.lineModel2}" style="height:300px;" widgetVar="chart3"/>
+                </h:panelGrid>
+                <h:panelGrid columns="2">
+                <p:chart  type="line" model="#{chart_mes_05.lineModel2}" style="height:300px;" widgetVar="chart4"/>
+                </h:panelGrid>
+                 <h:panelGrid columns="2">
+                <p:chart  type="line" model="#{chart_mes_06.lineModel2}" style="height:300px;" widgetVar="chart5"/>
+                </h:panelGrid>
+                 <h:panelGrid columns="2">
+                <p:chart  type="line" model="#{chart_mes_07.lineModel2}" style="height:300px;" widgetVar="chart6"/>
+                </h:panelGrid>
+                 <h:panelGrid columns="2">
+                <p:chart  type="line" model="#{chart_mes_08.lineModel2}" style="height:300px;" widgetVar="chart7"/>
+                </h:panelGrid>
+                 <h:panelGrid columns="2">
+                <p:chart  type="line" model="#{chart_mes_09.lineModel2}" style="height:300px;" widgetVar="chart8"/>
+                </h:panelGrid>
+                 <h:panelGrid columns="2">
+                <p:chart  type="line" model="#{chart_mes_10.lineModel2}" style="height:300px;" widgetVar="chart9"/>
+                </h:panelGrid>
+                 <h:panelGrid columns="2">
+                <p:chart  type="line" model="#{chart_mes_11.lineModel2}" style="height:300px;" widgetVar="chart10"/>
+                </h:panelGrid>
+                 <h:panelGrid columns="2">
+                <p:chart  type="line" model="#{chart_mes_10.lineModel2}" style="height:300px;" widgetVar="chart11"/>
+                </h:panelGrid>
+            </h:panelGrid> 
+            
+            
+            <h:panelGrid columns="2" columnClasses="left,right"  style="width:90% "> 
+                <!-- aqui se pondra el listado de que muestra la consulta -->
+
+                <p:panel id="pnlProducto">
+
+                    <p:dataTable 
+                        class="centered" 
+                        id="tblUsuario" 
+                        var="cli"
+                        value="#{cLugar.lista}"
+                        selectionMode="single"
+                        selection="#{cLugar.selectedLugar}"
+                        rowKey="#{cli.id}"
+                        rows="8" paginator="true" 
+                        paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                        rowsPerPageTemplate="6,12,16">
+                        <f:facet name="header">
+                            Rios de la localidad  
+                        </f:facet>
+                        <p:column headerText="Nombre del Rio en la localidad " style="width: 80%">
+                            <h:outputText value="#{cli.nombre}"/>
+                        </p:column>
+                        <p:column headerText="Descripcion u Observaciones" style="width: 80%">
+                            <h:outputText value="#{cli.observacion} "/>
+                        </p:column>
+                    </p:dataTable>
+                </p:panel>   
+
+
+                <!-- termino de la tabla listado  -->
+                <!-- CARDS INICIO -->
+
+
+
+                <!-- CARDS FINAL -->
+
+            </h:panelGrid>
+
+        </h:form>
+
+
+    </ui:define>
+
+
+    <ui:define name="footer">
+        <a target="_blank"
+           href="https://github.com/adminfaces/">
+            <b>SAT-PUYO (C) 2016 - 2017 (Octavo Sistemas)</b>
+        </a>
+
+        <div class="pull-right hidden-xs" style="color: gray">
+            <i>1.0.0</i>
+        </div>
+    </ui:define>
+
+
+</ui:composition>
+
+
